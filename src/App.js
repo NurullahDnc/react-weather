@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Form from './comporents/Form'
+import Info from './comporents/info'
 
 function App() {
+  //formdan degerleri alıcaz infoya gondericez
+  const [info, setInfo] = useState([])
+
+  // sayfa yenilendiginde hata veriyor, hava durumu verileri gitmedigi icin
+  const [state, setState] =useState(false)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Form setInfo = {setInfo} setState = {setState} /> 
+     <Info info = {info} state ={state} />
+     
     </div>
   );
 }
